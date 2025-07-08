@@ -7,32 +7,32 @@ import { Link } from 'react-router-dom';
 const AIMLSolutions = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
-  const capabilities = [
-    {
-      icon: Brain,
-      title: 'Machine Learning Models',
-      description: 'Pre-trained, niche machine learning models across multiple business process verticals.',
-      features: ['Payments Processing', 'Receivables Management', 'Contract Lifecycle', 'Procurement Automation']
-    },
-    {
-      icon: TrendingUp,
-      title: 'Predictive Analytics',
-      description: 'Advanced algorithms that predict trends and optimize business outcomes.',
-      features: ['Sales Forecasting', 'Risk Assessment', 'Customer Behavior', 'Market Analysis']
-    },
-    {
-      icon: Target,
-      title: 'Process Optimization',
-      description: 'AI-driven process improvements that accelerate transformation journeys.',
-      features: ['Workflow Analysis', 'Bottleneck Detection', 'Resource Allocation', 'Performance Metrics']
-    },
-    {
-      icon: Zap,
-      title: 'Intelligent Automation',
-      description: 'Smart automation that adapts and learns from your business processes.',
-      features: ['Adaptive Workflows', 'Self-Learning Systems', 'Exception Handling', 'Continuous Improvement']
-    }
-  ];
+//   const capabilities = [
+//     {
+//       icon: Brain,
+//       title: 'Machine Learning Models',
+//       description: 'Pre-trained, niche machine learning models across multiple business process verticals.',
+//       features: ['Payments Processing', 'Receivables Management', 'Contract Lifecycle', 'Procurement Automation']
+//     },
+//     {
+//       icon: TrendingUp,
+//       title: 'Predictive Analytics',
+//       description: 'Advanced algorithms that predict trends and optimize business outcomes.',
+//       features: ['Sales Forecasting', 'Risk Assessment', 'Customer Behavior', 'Market Analysis']
+//     },
+//     {
+//       icon: Target,
+//       title: 'Process Optimization',
+//       description: 'AI-driven process improvements that accelerate transformation journeys.',
+//       features: ['Workflow Analysis', 'Bottleneck Detection', 'Resource Allocation', 'Performance Metrics']
+//     },
+//     {
+//       icon: Zap,
+//       title: 'Intelligent Automation',
+//       description: 'Smart automation that adapts and learns from your business processes.',
+//       features: ['Adaptive Workflows', 'Self-Learning Systems', 'Exception Handling', 'Continuous Improvement']
+//     }
+//   ];
 
   const testimonials = [
     {
@@ -47,53 +47,56 @@ const AIMLSolutions = () => {
     }
   ];
 
-  const businessVerticals = [
-    {
-      title: 'Financial Services',
-      description: 'Automated payment processing, fraud detection, and risk management solutions.',
-      image: 'https://images.pexels.com/photos/3483098/pexels-photo-3483098.jpeg?auto=compress&cs=tinysrgb&w=600'
-    },
-    {
-      title: 'Healthcare',
-      description: 'Patient data analysis, treatment optimization, and operational efficiency.',
-      image: 'https://images.pexels.com/photos/3786157/pexels-photo-3786157.jpeg?auto=compress&cs=tinysrgb&w=600'
-    },
-    {
-      title: 'Supply Chain',
-      description: 'Procurement automation, inventory optimization, and supplier management.',
-      image: 'https://images.pexels.com/photos/3862132/pexels-photo-3862132.jpeg?auto=compress&cs=tinysrgb&w=600'
-    },
-    {
-      title: 'Manufacturing',
-      description: 'Quality control, predictive maintenance, and production optimization.',
-      image: 'https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=600'
-    }
-  ];
+//   const businessVerticals = [
+//     {
+//       title: 'Financial Services',
+//       description: 'Automated payment processing, fraud detection, and risk management solutions.',
+//       image: 'https://images.pexels.com/photos/3483098/pexels-photo-3483098.jpeg?auto=compress&cs=tinysrgb&w=600'
+//     },
+//     {
+//       title: 'Healthcare',
+//       description: 'Patient data analysis, treatment optimization, and operational efficiency.',
+//       image: 'https://images.pexels.com/photos/3786157/pexels-photo-3786157.jpeg?auto=compress&cs=tinysrgb&w=600'
+//     },
+//     {
+//       title: 'Supply Chain',
+//       description: 'Procurement automation, inventory optimization, and supplier management.',
+//       image: 'https://images.pexels.com/photos/3862132/pexels-photo-3862132.jpeg?auto=compress&cs=tinysrgb&w=600'
+//     },
+//     {
+//       title: 'Manufacturing',
+//       description: 'Quality control, predictive maintenance, and production optimization.',
+//       image: 'https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=600'
+//     }
+//   ];
 
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-100 to-gray-200 relative overflow-hidden">
-        <div className="absolute inset-0 bg-white/50"></div>
-        <div className="container mx-auto px-4 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center max-w-4xl mx-auto"
-          >
-            <nav className="flex justify-center items-center space-x-2 text-gray-600 mb-8">
-              <Link to="/" className="hover:text-blue-600 transition-colors">Home</Link>
-              <span>›</span>
-              <span className="text-gray-800">AI & ML Solutions</span>
-            </nav>
-            
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-800 mb-6">
-              AI & ML Solutions
-            </h1>
-          </motion.div>
-        </div>
-      </section>
+            <section
+  className="py-20 bg-gradient-to-r from-gray-100 to-gray-200 relative overflow-hidden bg-[url('https://techjignyasa.com/wp-content/uploads/2019/09/title_bg-2.jpg')] bg-cover bg-center"
+>
+  {/* Bubble Overlays */}
+  <div className="absolute inset-0 opacity-10">
+    <div className="absolute top-10 left-10 w-20 h-20 bg-blue-600 rounded-full"></div>
+    <div className="absolute top-20 right-20 w-16 h-16 bg-cyan-500 rounded-full"></div>
+    <div className="absolute bottom-10 left-1/4 w-12 h-12 bg-blue-400 rounded-full"></div>
+    <div className="absolute bottom-20 right-1/3 w-24 h-24 bg-gray-400 rounded-full"></div>
+  </div>
+
+  {/* Content */}
+  <div className="container mx-auto px-4 text-center relative z-10">
+    <h1 className="text-5xl md:text-6xl font-bold text-gray-800 mb-6">
+      AI and ML Solutions    </h1>
+
+    {/* Breadcrumb */}
+    <div className="flex justify-center items-center space-x-2 text-gray-600 mb-8">
+      <span className="hover:text-blue-600 cursor-pointer">Home</span>
+      <span>›</span>
+      <span className="text-gray-800">AI and ML Solutions</span>
+    </div>
+  </div>
+</section>
 
       {/* Main Content */}
       <section className="py-20">
@@ -148,7 +151,7 @@ const AIMLSolutions = () => {
       </section>
 
       {/* Capabilities Section */}
-      <section className="py-20 bg-white">
+      {/* <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -201,10 +204,10 @@ const AIMLSolutions = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Business Verticals */}
-      <section className="py-20 bg-gray-50">
+      {/* <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -249,10 +252,10 @@ const AIMLSolutions = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA Section */}
-      <section className="py-20 bg-blue-600">
+      {/* <section className="py-20 bg-blue-600">
         <div className="container mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -276,7 +279,7 @@ const AIMLSolutions = () => {
             </motion.div>
           </motion.div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };

@@ -84,7 +84,7 @@ const Footer = () => {
                     to={link.path}
                     className="text-gray-300 hover:text-white hover:text-blue-400 transition-colors duration-200 flex items-center space-x-2"
                   >
-                    <span className="w-1 h-1 bg-blue-400 rounded-full"></span>
+                    {/* <span className="w-1 h-1 bg-blue-400 rounded-full"></span> */}
                     <span>{link.label}</span>
                   </Link>
                 </li>
@@ -106,7 +106,7 @@ const Footer = () => {
                     to="/services"
                     className="text-gray-300 hover:text-white hover:text-blue-400 transition-colors duration-200 flex items-center space-x-2"
                   >
-                    <span className="w-1 h-1 bg-blue-400 rounded-full"></span>
+                    {/* <span className="w-1 h-1 bg-blue-400 rounded-full"></span> */}
                     <span>{service}</span>
                   </Link>
                 </li>

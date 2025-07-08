@@ -19,7 +19,7 @@ const Header = () => {
   const navItems = [
     { path: '/', label: 'Home' },
     {
-      path: '/products',
+      path: '/products/cognitive-rpa',
       label: 'Products',
       hasDropdown: true,
       dropdownItems: [
@@ -27,7 +27,7 @@ const Header = () => {
       ]
     },
     {
-      path: '/services',
+      path: '/services/ai-ml',
       label: 'Services',
       hasDropdown: true,
       dropdownItems: [

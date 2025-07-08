@@ -18,8 +18,8 @@ function App() {
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/products" element={<Products />} />
-            <Route path="/services" element={<Services />} />
+            {/* <Route path="/products" element={<Products />} />
+            <Route path="/services" element={<Services />} /> */}
             <Route path="/contact" element={<ContactUs />} />
              <Route path="/products/cognitive-rpa" element={<CognitiveRPA />} />
              <Route path="/services/ai-ml" element={<AIMLSolutions />} />

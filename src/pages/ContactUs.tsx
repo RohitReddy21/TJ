@@ -125,7 +125,7 @@ const ContactUs = () => {
 
               {/* Stats */}
               <div className="grid grid-cols-3 gap-4">
-                {stats.map((stat, index) => (
+                {/* {stats.map((stat, index) => (
                   <motion.div
                     key={index}
                     initial={{ opacity: 0, y: 20 }}
@@ -142,7 +142,7 @@ const ContactUs = () => {
                     <div className="text-2xl font-bold text-gray-800">{stat.value}</div>
                     <div className="text-gray-600 text-sm">{stat.label}</div>
                   </motion.div>
-                ))}
+                ))} */}
               </div>
             </motion.div>
 
@@ -276,36 +276,45 @@ const ContactUs = () => {
       </section>
 
       {/* Map Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-4xl font-bold text-gray-800 mb-4">
-              Our Global Presence
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              With offices in Dallas, TX and Hyderabad, India, we're positioned to serve clients worldwide.
-            </p>
-          </motion.div>
+<section className="py-20 bg-white">
+  <div className="container mx-auto px-4">
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      className="text-center mb-12"
+    >
+      <h2 className="text-4xl font-bold text-gray-800 mb-4">
+        Our Global Presence
+      </h2>
+      <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+        With offices in Dallas, TX and Hyderabad, India, we're positioned to serve clients worldwide.
+      </p>
+    </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
-            className="bg-gray-200 h-96 rounded-xl flex items-center justify-center"
-          >
-            <div className="text-center text-gray-600">
-              <MapPin size={48} className="mx-auto mb-4" />
-              <p className="text-lg">Interactive map would be integrated here</p>
-              <p className="text-sm">Dallas, TX • Hyderabad, India</p>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+    <motion.div
+      initial={{ opacity: 0, scale: 0.9 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.8 }}
+      className="bg-gray-200 h-96 rounded-xl overflow-hidden"
+    >
+     <div className="w-full h-[450px]">
+  <iframe
+    title="Tech Jignyasa Location"
+    src="https://www.google.com/maps/embed?pb=YOUR_CORRECT_PB_PARAMETER"
+    width="100%"
+    height="100%"
+    style={{ border: 0 }}
+    allowFullScreen
+    loading="lazy"
+    referrerPolicy="no-referrer-when-downgrade"
+  ></iframe>
+</div>
+
+    </motion.div>
+  </div>
+</section>
+
     </div>
   );
 };

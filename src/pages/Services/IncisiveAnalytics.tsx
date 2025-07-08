@@ -86,27 +86,30 @@ const IncisiveAnalytics = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-100 to-gray-200 relative overflow-hidden">
-        <div className="absolute inset-0 bg-white/50"></div>
-        <div className="container mx-auto px-4 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center max-w-4xl mx-auto"
-          >
-            <nav className="flex justify-center items-center space-x-2 text-gray-600 mb-8">
-              <Link to="/" className="hover:text-blue-600 transition-colors">Home</Link>
-              <span>›</span>
-              <span className="text-gray-800">Incisive Analytics</span>
-            </nav>
-            
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-800 mb-6">
-              Incisive Analytics
-            </h1>
-          </motion.div>
-        </div>
-      </section>
+      <section
+  className="py-20 bg-gradient-to-r from-gray-100 to-gray-200 relative overflow-hidden bg-[url('https://techjignyasa.com/wp-content/uploads/2019/09/title_bg-2.jpg')] bg-cover bg-center"
+>
+  {/* Bubble Overlays */}
+  <div className="absolute inset-0 opacity-10">
+    <div className="absolute top-10 left-10 w-20 h-20 bg-blue-600 rounded-full"></div>
+    <div className="absolute top-20 right-20 w-16 h-16 bg-cyan-500 rounded-full"></div>
+    <div className="absolute bottom-10 left-1/4 w-12 h-12 bg-blue-400 rounded-full"></div>
+    <div className="absolute bottom-20 right-1/3 w-24 h-24 bg-gray-400 rounded-full"></div>
+  </div>
+
+  {/* Content */}
+  <div className="container mx-auto px-4 text-center relative z-10">
+    <h1 className="text-5xl md:text-6xl font-bold text-gray-800 mb-6">
+      Incisive Analytics    </h1>
+
+    {/* Breadcrumb */}
+    <div className="flex justify-center items-center space-x-2 text-gray-600 mb-8">
+      <span className="hover:text-blue-600 cursor-pointer">Home</span>
+      <span>›</span>
+      <span className="text-gray-800">Incisive Analytics</span>
+    </div>
+  </div>
+</section>
 
       {/* Main Content */}
       <section className="py-20">
@@ -134,9 +137,9 @@ const IncisiveAnalytics = () => {
                   initial={{ opacity: 0, x: -50 }}
                   animate={inView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 0.8, delay: index * 0.2 }}
-                  className="bg-white p-8 rounded-xl shadow-lg border-l-4 border-purple-500"
+                  className="bg-white p-8 rounded-xl shadow-lg border-l-4 border-blue-500"
                 >
-                  <Quote className="text-purple-500 mb-4" size={32} />
+                  <Quote className="text-blue-500 mb-4" size={32} />
                   <p className="text-gray-700 text-lg italic mb-4">
                     "{testimonial.quote}"
                   </p>
@@ -161,7 +164,7 @@ const IncisiveAnalytics = () => {
       </section>
 
       {/* Capabilities Section */}
-      <section className="py-20 bg-white">
+      {/* <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -217,7 +220,7 @@ const IncisiveAnalytics = () => {
       </section>
 
       {/* Analytics Types */}
-      <section className="py-20 bg-gray-50">
+      {/* <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -272,10 +275,10 @@ const IncisiveAnalytics = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Platform Features */}
-      <section className="py-20 bg-white">
+      {/* <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -311,10 +314,10 @@ const IncisiveAnalytics = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA Section */}
-      <section className="py-20 bg-purple-600">
+      <section className="py-20 bg-blue-600">
         <div className="container mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -330,7 +333,7 @@ const IncisiveAnalytics = () => {
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link
                 to="/contact"
-                className="bg-white text-purple-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold transition-colors duration-200 inline-flex items-center space-x-2"
+                className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold transition-colors duration-200 inline-flex items-center space-x-2"
               >
                 <span>Get Started</span>
                 <ArrowRight size={20} />

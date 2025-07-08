@@ -7,32 +7,32 @@ import { Link } from 'react-router-dom';
 const ResourceRealignment = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
-  const services = [
-    {
-      icon: Globe,
-      title: 'Offshore Operations Setup',
-      description: 'Establish efficient operations in India with the right resource mix.',
-      features: ['Location Strategy', 'Infrastructure Setup', 'Compliance Management', 'Cultural Integration']
-    },
-    {
-      icon: Users,
-      title: 'Resource Optimization',
-      description: 'Right-size your resource mix for optimal cost and performance balance.',
-      features: ['Skill Assessment', 'Team Restructuring', 'Performance Metrics', 'Capacity Planning']
-    },
-    {
-      icon: TrendingUp,
-      title: 'Process Enhancement',
-      description: 'Streamline operations with automation and improved workflows.',
-      features: ['Process Automation', 'Workflow Optimization', 'Quality Improvement', 'Efficiency Gains']
-    },
-    {
-      icon: Target,
-      title: 'Customer Focus',
-      description: 'Enable front-line staff to be more customer-oriented while back-office tasks are automated.',
-      features: ['Customer Experience', 'Staff Empowerment', 'Service Quality', 'Response Time']
-    }
-  ];
+  // const services = [
+  //   {
+  //     icon: Globe,
+  //     title: 'Offshore Operations Setup',
+  //     description: 'Establish efficient operations in India with the right resource mix.',
+  //     features: ['Location Strategy', 'Infrastructure Setup', 'Compliance Management', 'Cultural Integration']
+  //   },
+  //   {
+  //     icon: Users,
+  //     title: 'Resource Optimization',
+  //     description: 'Right-size your resource mix for optimal cost and performance balance.',
+  //     features: ['Skill Assessment', 'Team Restructuring', 'Performance Metrics', 'Capacity Planning']
+  //   },
+  //   {
+  //     icon: TrendingUp,
+  //     title: 'Process Enhancement',
+  //     description: 'Streamline operations with automation and improved workflows.',
+  //     features: ['Process Automation', 'Workflow Optimization', 'Quality Improvement', 'Efficiency Gains']
+  //   },
+  //   {
+  //     icon: Target,
+  //     title: 'Customer Focus',
+  //     description: 'Enable front-line staff to be more customer-oriented while back-office tasks are automated.',
+  //     features: ['Customer Experience', 'Staff Empowerment', 'Service Quality', 'Response Time']
+  //   }
+  // ];
 
   const testimonials = [
     {
@@ -47,54 +47,57 @@ const ResourceRealignment = () => {
     }
   ];
 
-  const benefits = [
-    {
-      title: 'Cost Reduction',
-      description: 'Reduce operational costs by 50% or more',
-      icon: TrendingUp
-    },
-    {
-      title: 'Quality Improvement',
-      description: 'Higher quality service delivery',
-      icon: Target
-    },
-    {
-      title: 'Customer Satisfaction',
-      description: 'Improved customer satisfaction scores',
-      icon: Users
-    },
-    {
-      title: 'Scalability',
-      description: 'Rapid scaling capabilities',
-      icon: Globe
-    }
-  ];
+  // const benefits = [
+  //   {
+  //     title: 'Cost Reduction',
+  //     description: 'Reduce operational costs by 50% or more',
+  //     icon: TrendingUp
+  //   },
+  //   {
+  //     title: 'Quality Improvement',
+  //     description: 'Higher quality service delivery',
+  //     icon: Target
+  //   },
+  //   {
+  //     title: 'Customer Satisfaction',
+  //     description: 'Improved customer satisfaction scores',
+  //     icon: Users
+  //   },
+  //   {
+  //     title: 'Scalability',
+  //     description: 'Rapid scaling capabilities',
+  //     icon: Globe
+  //   }
+  // ];
 
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-100 to-gray-200 relative overflow-hidden">
-        <div className="absolute inset-0 bg-white/50"></div>
-        <div className="container mx-auto px-4 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center max-w-4xl mx-auto"
-          >
-            <nav className="flex justify-center items-center space-x-2 text-gray-600 mb-8">
-              <Link to="/" className="hover:text-blue-600 transition-colors">Home</Link>
-              <span>›</span>
-              <span className="text-gray-800">Resource Realignment</span>
-            </nav>
-            
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-800 mb-6">
-              Resource Realignment
-            </h1>
-          </motion.div>
-        </div>
-      </section>
+      <section
+  className="py-20 bg-gradient-to-r from-gray-100 to-gray-200 relative overflow-hidden bg-[url('https://techjignyasa.com/wp-content/uploads/2019/09/title_bg-2.jpg')] bg-cover bg-center"
+>
+  {/* Bubble Overlays */}
+  <div className="absolute inset-0 opacity-10">
+    <div className="absolute top-10 left-10 w-20 h-20 bg-blue-600 rounded-full"></div>
+    <div className="absolute top-20 right-20 w-16 h-16 bg-cyan-500 rounded-full"></div>
+    <div className="absolute bottom-10 left-1/4 w-12 h-12 bg-blue-400 rounded-full"></div>
+    <div className="absolute bottom-20 right-1/3 w-24 h-24 bg-gray-400 rounded-full"></div>
+  </div>
 
+  {/* Content */}
+  <div className="container mx-auto px-4 text-center relative z-10">
+    <h1 className="text-5xl md:text-6xl font-bold text-gray-800 mb-6">
+      Resource Realignment
+    </h1>
+
+    {/* Breadcrumb */}
+    <div className="flex justify-center items-center space-x-2 text-gray-600 mb-8">
+      <span className="hover:text-blue-600 cursor-pointer">Home</span>
+      <span>›</span>
+      <span className="text-gray-800">Resource Realignment</span>
+    </div>
+  </div>
+</section>
       {/* Main Content */}
       <section className="py-20">
         <div className="container mx-auto px-4">
@@ -121,9 +124,9 @@ const ResourceRealignment = () => {
                   initial={{ opacity: 0, x: -50 }}
                   animate={inView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 0.8, delay: index * 0.2 }}
-                  className="bg-white p-8 rounded-xl shadow-lg border-l-4 border-green-500"
+                  className="bg-white p-8 rounded-xl shadow-lg border-l-4 border-blue-500"
                 >
-                  <Quote className="text-green-500 mb-4" size={32} />
+                  <Quote className="text-blue-500 mb-4" size={32} />
                   <p className="text-gray-700 text-lg italic mb-4">
                     "{testimonial.quote}"
                   </p>
@@ -148,7 +151,7 @@ const ResourceRealignment = () => {
       </section>
 
       {/* Services Section */}
-      <section className="py-20 bg-white">
+      {/* <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -176,7 +179,7 @@ const ResourceRealignment = () => {
               >
                 <motion.div
                   whileHover={{ scale: 1.1, rotate: 5 }}
-                  className="w-16 h-16 bg-green-600 rounded-lg flex items-center justify-center mb-6"
+                  className="w-16 h-16  bg-blue-600 rounded-lg flex items-center justify-center mb-6"
                 >
                   <service.icon size={32} className="text-white" />
                 </motion.div>
@@ -201,10 +204,10 @@ const ResourceRealignment = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Benefits Section */}
-      <section className="py-20 bg-gray-50">
+      {/* <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -232,7 +235,7 @@ const ResourceRealignment = () => {
               >
                 <motion.div
                   whileHover={{ scale: 1.1, rotate: 5 }}
-                  className="w-16 h-16 bg-green-600 rounded-lg flex items-center justify-center mx-auto mb-4"
+                  className="w-16 h-16  bg-blue-600 rounded-lg flex items-center justify-center mx-auto mb-4"
                 >
                   <benefit.icon size={32} className="text-white" />
                 </motion.div>
@@ -246,10 +249,10 @@ const ResourceRealignment = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Process Section */}
-      <section className="py-20 bg-white">
+      {/* <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -281,7 +284,7 @@ const ResourceRealignment = () => {
               >
                 <motion.div
                   whileHover={{ scale: 1.1 }}
-                  className="w-20 h-20 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-6"
+                  className="w-20 h-20  bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6"
                 >
                   <span className="text-2xl font-bold text-white">{process.step}</span>
                 </motion.div>
@@ -295,10 +298,10 @@ const ResourceRealignment = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA Section */}
-      <section className="py-20 bg-green-600">
+      {/* <section className="py-20  bg-blue-600">
         <div className="container mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -314,7 +317,7 @@ const ResourceRealignment = () => {
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link
                 to="/contact"
-                className="bg-white text-green-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold transition-colors duration-200 inline-flex items-center space-x-2"
+                className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold transition-colors duration-200 inline-flex items-center space-x-2"
               >
                 <span>Get Started</span>
                 <ArrowRight size={20} />
@@ -322,7 +325,7 @@ const ResourceRealignment = () => {
             </motion.div>
           </motion.div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };
