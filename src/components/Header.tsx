@@ -48,18 +48,29 @@ const Header = () => {
       {/* Top Info Bar */}
       <div className="hidden md:flex bg-gray-100 text-sm text-gray-700 px-6 py-1 justify-between items-center">
         <div className="flex items-center space-x-6">
-          <div className="flex items-center space-x-1">
+          <a href="tel:+14195614770" className="flex items-center space-x-1 hover:text-blue-600">
             <Phone size={14} />
             <span>(419) 561-4770</span>
-          </div>
-          <div className="flex items-center space-x-1">
+          </a>
+          <a href="mailto:sales@techjignyasa.com" className="flex items-center space-x-1 hover:text-blue-600">
             <Mail size={14} />
             <span>sales@techjignyasa.com</span>
-          </div>
+          </a>
           <div className="flex items-center space-x-1">
             <MapPin size={14} />
             <span>Dallas, TX</span>
           </div>
+        </div>
+        <div className="flex items-center space-x-4">
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600">
+            <Facebook size={16} />
+          </a>
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600">
+            <Twitter size={16} />
+          </a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600">
+            <Linkedin size={16} />
+          </a>
         </div>
       </div>
 
@@ -150,7 +161,7 @@ const Header = () => {
               </div>
               <div className="flex flex-col text-sm leading-tight">
                 <span className="text-xs text-gray-500">Have Any Question?</span>
-                <span className="font-bold text-gray-800">(419) 561-4770</span>
+                <a href="tel:+14195614770" className="font-bold text-gray-800 hover:text-blue-600">(419) 561-4770</a>
               </div>
             </div>
           </div>
@@ -186,26 +197,20 @@ const Header = () => {
 
                   return (
                     <div key={item.path} className="flex flex-col">
-                      <button
-                        onClick={() => {
-                          if (item.hasDropdown) toggleDropdown();
-                          else setIsMenuOpen(false);
-                        }}
-                        className="flex items-center justify-between text-gray-700 hover:text-blue-600 font-medium py-2"
-                      >
-                        <span>{item.label}</span>
-                        {item.hasDropdown && (
-                          <motion.span
-                            animate={{ rotate: isDropdownOpen ? 180 : 0 }}
-                            transition={{ duration: 0.2 }}
+                      {item.hasDropdown ? (
+                        <>
+                          <button
+                            onClick={toggleDropdown}
+                            className="flex items-center justify-between text-gray-700 hover:text-blue-600 font-medium py-2"
                           >
-                            <ChevronDown size={16} />
-                          </motion.span>
-                        )}
-                      </button>
-
-                      {item.hasDropdown && (
-                        <AnimatePresence>
+                            <span>{item.label}</span>
+                            <motion.span
+                              animate={{ rotate: isDropdownOpen ? 180 : 0 }}
+                              transition={{ duration: 0.2 }}
+                            >
+                              <ChevronDown size={16} />
+                            </motion.span>
+                          </button>
                           {isDropdownOpen && (
                             <motion.div
                               initial={{ opacity: 0, height: 0 }}
@@ -225,7 +230,15 @@ const Header = () => {
                               ))}
                             </motion.div>
                           )}
-                        </AnimatePresence>
+                        </>
+                      ) : (
+                        <Link
+                          to={item.path}
+                          onClick={() => setIsMenuOpen(false)}
+                          className="text-gray-700 hover:text-blue-600 font-medium py-2"
+                        >
+                          {item.label}
+                        </Link>
                       )}
                     </div>
                   );
