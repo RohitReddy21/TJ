@@ -5,7 +5,9 @@ import { ArrowRight, CheckCircle, Users, Award, Clock, Target } from 'lucide-rea
 import { Link } from 'react-router-dom';
 import ThreeBackground from '../components/ThreeBackground';
 import background from '../assets/title_bg-2.jpg'
-
+import StatsSection from '../components/StatsSection';
+import ServicesSection from '../components/ServicesSection';
+import WorkflowSteps from '../components/WorkFlowSteps';
 const Home = () => {
   const [heroRef, heroInView] = useInView({ triggerOnce: true, threshold: 0.1 });
   const [featuresRef, featuresInView] = useInView({ triggerOnce: true, threshold: 0.1 });
@@ -77,7 +79,7 @@ const Home = () => {
             >
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Link
-                  to="/services"
+                  to="/services/ai-ml"
                   className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold transition-colors duration-200 flex items-center space-x-2"
                 >
                   <span>Our Services</span>
@@ -97,105 +99,9 @@ const Home = () => {
           </motion.div>
         </div>
       </section>
-
-      {/* Features Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <motion.div
-            ref={featuresRef}
-            initial={{ opacity: 0, y: 50 }}
-            animate={featuresInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-              Our Solutions
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Cutting-edge technology solutions designed to transform your business operations.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 50 }}
-                animate={featuresInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
-                whileHover={{ y: -10, scale: 1.02 }}
-                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-100"
-              >
-                <div className="h-48 overflow-hidden">
-                  <img
-                    src={feature.image}
-                    alt={feature.title}
-                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-800 mb-3">
-                    {feature.title}
-                  </h3>
-                  <p className="text-gray-600 mb-4">
-                    {feature.description}
-                  </p>
-                  <Link
-                    to="/products"
-                    className="text-blue-600 hover:text-blue-700 font-medium flex items-center space-x-1 transition-colors duration-200"
-                  >
-                    <span>Learn More</span>
-                    <ArrowRight size={16} />
-                  </Link>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <motion.div
-            ref={statsRef}
-            initial={{ opacity: 0, y: 50 }}
-            animate={statsInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-              Our Impact
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Numbers that speak for our commitment to excellence and client satisfaction.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                animate={statsInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ scale: 1.05 }}
-                className="text-center bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                <motion.div
-                  whileHover={{ scale: 1.2, rotate: 10 }}
-                  className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4"
-                >
-                  <stat.icon size={32} className="text-white" />
-                </motion.div>
-                <div className="text-3xl font-bold text-gray-800 mb-2">{stat.value}</div>
-                <div className="text-gray-600">{stat.label}</div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
+      <StatsSection />
+      <ServicesSection/>
+      <WorkflowSteps/>
       {/* CTA Section */}
       <section
   style={{ backgroundImage: `url(${background})` }}

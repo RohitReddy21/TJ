@@ -5,7 +5,7 @@ import {
   Facebook, Linkedin, Twitter
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import logo from "../assets/logo_white@2x-2.png"
+import logo from '../assets/logo_white@2x-2.png'; // Update with your actual logo path
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -27,8 +27,8 @@ const Header = () => {
       label: 'Products',
       hasDropdown: true,
       dropdownItems: [
-        { path: '/products/cognitive-rpa', label: 'Cognitive RPA' }
-      ]
+        { path: '/products/cognitive-rpa', label: 'Cognitive RPA' },
+      ],
     },
     {
       path: '/services/ai-ml',
@@ -37,41 +37,33 @@ const Header = () => {
       dropdownItems: [
         { path: '/services/ai-ml', label: 'AI & ML Solutions' },
         { path: '/services/resource-realignment', label: 'Resource Realignment' },
-        { path: '/services/Incisive-Analytics', label: 'Incisive Analytics' }
-      ]
+        { path: '/services/incisive-analytics', label: 'Incisive Analytics' },
+      ],
     },
-    { path: '/contact', label: 'Contact Us' }
+    { path: '/contact', label: 'Contact Us' },
   ];
 
   return (
     <header className="w-full z-50">
       {/* Top Info Bar */}
-      <div className="hidden md:flex bg-gray-200 text-sm text-gray-700 px-4 py-2 justify-between items-center">
-        <div className="flex items-center space-x-4">
+      <div className="hidden md:flex bg-gray-100 text-sm text-gray-700 px-6 py-1 justify-between items-center">
+        <div className="flex items-center space-x-6">
+          <div className="flex items-center space-x-1">
+            <Phone size={14} />
+            <span>(419) 561-4770</span>
+          </div>
           <div className="flex items-center space-x-1">
             <Mail size={14} />
             <span>sales@techjignyasa.com</span>
           </div>
-          <div className="hidden md:flex items-center space-x-1">
+          <div className="flex items-center space-x-1">
             <MapPin size={14} />
-            <span>Dallas, TX and Hyderabad, India</span>
-          </div>
-        </div>
-
-        <div className="flex items-center space-x-4">
-          <div className="flex items-center space-x-1 text-blue-600 font-semibold">
-            <Phone size={14} />
-            <span>(419) 561-4770</span>
-          </div>
-          <div className="flex space-x-2 text-gray-500">
-            <Facebook className="hover:text-blue-600 cursor-pointer" size={16} />
-            <Linkedin className="hover:text-blue-600 cursor-pointer" size={16} />
-            <Twitter className="hover:text-blue-600 cursor-pointer" size={16} />
+            <span>Dallas, TX</span>
           </div>
         </div>
       </div>
 
-      {/* Navigation */}
+      {/* Main Navigation */}
       <motion.div
         initial={{ y: -100 }}
         animate={{ y: 0 }}
@@ -80,18 +72,13 @@ const Header = () => {
           scrolled ? 'bg-white/95 backdrop-blur-sm shadow-lg' : 'bg-white'
         }`}
       >
-        <div className="container mx-auto px-4 py-1 md:px-[150px] flex items-center justify-between">
+        <div className="container mx-auto px-4 py-2 md:px-10 flex items-center justify-between">
           {/* Logo */}
-         
-<Link to="/" className="flex items-center space-x-2 sm:space-x-3">
-  <img
-    src={logo}
-    alt="Tech Jignyasa Logo"
-    className="w-10 h-10 sm:w-[100px] sm:h-[80px] object-contain rounded-lg"
-  />
-</Link>
+          <Link to="/" className="flex items-center space-x-3">
+            <img src={logo} alt="Tech Jignyasa Logo" className="w-28 h-16 object-contain" />
+          </Link>
 
-          {/* Desktop Nav */}
+          {/* Nav Links */}
           <nav className="hidden lg:flex items-center space-x-8">
             {navItems.map((item) => (
               <div key={item.path} className="relative group">
@@ -109,14 +96,17 @@ const Header = () => {
                     <Link
                       to={item.path}
                       className={`flex items-center space-x-1 text-gray-700 hover:text-blue-600 font-medium py-2 ${
-                        location.pathname === item.path ? 'text-blue-600 border-b-2 border-blue-600' : ''
+                        location.pathname === item.path
+                          ? 'text-blue-600 border-b-2 border-blue-600'
+                          : ''
                       }`}
                     >
                       <span>{item.label}</span>
                       <ChevronDown size={16} />
                     </Link>
                     <AnimatePresence>
-                      {((item.label === 'Products' && productsOpen) || (item.label === 'Services' && servicesOpen)) && (
+                      {((item.label === 'Products' && productsOpen) ||
+                        (item.label === 'Services' && servicesOpen)) && (
                         <motion.div
                           initial={{ opacity: 0, y: 10 }}
                           animate={{ opacity: 1, y: 0 }}
@@ -140,7 +130,9 @@ const Header = () => {
                   <Link
                     to={item.path}
                     className={`text-gray-700 hover:text-blue-600 font-medium py-2 ${
-                      location.pathname === item.path ? 'text-blue-600 border-b-2 border-blue-600' : ''
+                      location.pathname === item.path
+                        ? 'text-blue-600 border-b-2 border-blue-600'
+                        : ''
                     }`}
                   >
                     {item.label}
@@ -149,6 +141,19 @@ const Header = () => {
               </div>
             ))}
           </nav>
+
+          {/* Right Contact Info */}
+          <div className="hidden md:flex items-center space-x-2">
+            <div className="flex items-center space-x-2">
+              <div className="bg-blue-100 p-2 rounded-full">
+                <Phone className="text-blue-600" size={18} />
+              </div>
+              <div className="flex flex-col text-sm leading-tight">
+                <span className="text-xs text-gray-500">Have Any Question?</span>
+                <span className="font-bold text-gray-800">(419) 561-4770</span>
+              </div>
+            </div>
+          </div>
 
           {/* Mobile Menu Button */}
           <button
@@ -161,81 +166,74 @@ const Header = () => {
 
         {/* Mobile Nav */}
         <AnimatePresence>
-  {isMenuOpen && (
-    <motion.div
-      initial={{ opacity: 0, height: 0 }}
-      animate={{ opacity: 1, height: 'auto' }}
-      exit={{ opacity: 0, height: 0 }}
-      className="lg:hidden px-4 pb-4"
-    >
-      <nav className="flex flex-col space-y-4 pt-4 border-t border-gray-200">
-        {navItems.map((item) => {
-          const isDropdownOpen =
-            (item.label === 'Products' && productsOpen) ||
-            (item.label === 'Services' && servicesOpen);
+          {isMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              className="lg:hidden px-4 pb-4"
+            >
+              <nav className="flex flex-col space-y-4 pt-4 border-t border-gray-200">
+                {navItems.map((item) => {
+                  const isDropdownOpen =
+                    (item.label === 'Products' && productsOpen) ||
+                    (item.label === 'Services' && servicesOpen);
 
-          const toggleDropdown = () => {
-            if (item.label === 'Products') setProductsOpen(!productsOpen);
-            if (item.label === 'Services') setServicesOpen(!servicesOpen);
-          };
+                  const toggleDropdown = () => {
+                    if (item.label === 'Products') setProductsOpen(!productsOpen);
+                    if (item.label === 'Services') setServicesOpen(!servicesOpen);
+                  };
 
-          return (
-            <div key={item.path} className="flex flex-col">
-              <button
-                onClick={() => {
-                  if (item.hasDropdown) toggleDropdown();
-                  else setIsMenuOpen(false);
-                }}
-                className="flex items-center justify-between text-gray-700 hover:text-blue-600 font-medium py-2"
-              >
-                <span>{item.label}</span>
-                {item.hasDropdown && (
-                  <motion.span
-                    animate={{ rotate: isDropdownOpen ? 180 : 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <ChevronDown size={16} />
-                  </motion.span>
-                )}
-              </button>
+                  return (
+                    <div key={item.path} className="flex flex-col">
+                      <button
+                        onClick={() => {
+                          if (item.hasDropdown) toggleDropdown();
+                          else setIsMenuOpen(false);
+                        }}
+                        className="flex items-center justify-between text-gray-700 hover:text-blue-600 font-medium py-2"
+                      >
+                        <span>{item.label}</span>
+                        {item.hasDropdown && (
+                          <motion.span
+                            animate={{ rotate: isDropdownOpen ? 180 : 0 }}
+                            transition={{ duration: 0.2 }}
+                          >
+                            <ChevronDown size={16} />
+                          </motion.span>
+                        )}
+                      </button>
 
-              {/* Animated Submenu */}
-              {item.hasDropdown && (
-                <AnimatePresence>
-                  {isDropdownOpen && (
-                    <motion.div
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: 'auto' }}
-                      exit={{ opacity: 0, height: 0 }}
-                      className="pl-4 space-y-2"
-                    >
-                      {item.dropdownItems.map((sub) => (
-                        <Link
-                          key={sub.path}
-                          to={sub.path}
-                          onClick={() => setIsMenuOpen(false)}
-                          className="text-gray-600 text-sm hover:text-blue-600 block"
-                        >
-                          {sub.label}
-                        </Link>
-                      ))}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              )}
-            </div>
-          );
-        })}
-
-        <div className="flex items-center space-x-2 text-gray-600 pt-4 border-t border-gray-200">
-          <Phone size={16} className="text-blue-600" />
-          <span className="text-sm font-semibold">(419) 561-4770</span>
-        </div>
-      </nav>
-    </motion.div>
-  )}
-</AnimatePresence>
-
+                      {item.hasDropdown && (
+                        <AnimatePresence>
+                          {isDropdownOpen && (
+                            <motion.div
+                              initial={{ opacity: 0, height: 0 }}
+                              animate={{ opacity: 1, height: 'auto' }}
+                              exit={{ opacity: 0, height: 0 }}
+                              className="pl-4 space-y-2"
+                            >
+                              {item.dropdownItems.map((sub) => (
+                                <Link
+                                  key={sub.path}
+                                  to={sub.path}
+                                  onClick={() => setIsMenuOpen(false)}
+                                  className="text-gray-600 text-sm hover:text-blue-600 block"
+                                >
+                                  {sub.label}
+                                </Link>
+                              ))}
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      )}
+                    </div>
+                  );
+                })}
+              </nav>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </motion.div>
     </header>
   );
