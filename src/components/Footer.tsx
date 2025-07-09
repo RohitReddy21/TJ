@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import logo from '../assets/logo_white@2x-2.png'
 import {
   Facebook,
   Linkedin,
@@ -45,20 +46,15 @@ const Footer = () => {
             transition={{ duration: 0.6 }}
             className="lg:col-span-1"
           >
-            <div className="flex items-center space-x-3 mb-6">
-              <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
-                <div className="text-white font-bold text-sm">
-                  <div className="flex flex-col items-center">
-                    <span className="text-xs leading-none">TECH</span>
-                    <span className="text-xs leading-none text-cyan-300">JIGNYASA</span>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <div className="text-white font-bold text-xl">TECH</div>
-                <div className="text-cyan-400 text-sm tracking-wider">JIGNYASA</div>
-              </div>
-            </div>
+            <Link to="/" className="flex items-center space-x-2 sm:space-x-3">
+  <img
+    src={logo}
+    alt="Tech Jignyasa Logo"
+    className="w-10 h-10 sm:w-[100px] sm:h-[80px] object-contain rounded-lg mb-3"
+  />
+</Link>
+  
+             
             <p className="text-gray-300 mb-6 leading-relaxed">
               We believe that designing products and services in close partnership with our clients is the only way to have a real impact on their business.
             </p>

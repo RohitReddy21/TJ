@@ -5,6 +5,7 @@ import {
   Facebook, Linkedin, Twitter
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import logo from "../assets/logo_white@2x-2.png"
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -79,16 +80,16 @@ const Header = () => {
           scrolled ? 'bg-white/95 backdrop-blur-sm shadow-lg' : 'bg-white'
         }`}
       >
-        <div className="container mx-auto px-4 py-3 md:px-[150px] flex items-center justify-between">
+        <div className="container mx-auto px-4 py-1 md:px-[150px] flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3">
-            <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
-              <div className="text-white font-bold text-sm leading-tight text-center">
-                <div>TECH</div>
-                <div className="text-cyan-300">JIGNYASA</div>
-              </div>
-            </div>
-          </Link>
+         
+<Link to="/" className="flex items-center space-x-2 sm:space-x-3">
+  <img
+    src={logo}
+    alt="Tech Jignyasa Logo"
+    className="w-10 h-10 sm:w-[100px] sm:h-[80px] object-contain rounded-lg"
+  />
+</Link>
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center space-x-8">

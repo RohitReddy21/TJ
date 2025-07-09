@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Phone, Mail, MapPin, Send, Clock, Users, Award } from 'lucide-react';
-
+import background from '../assets/title_bg-2.jpg';
 const ContactUs = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
   const [formData, setFormData] = useState({
@@ -68,23 +68,32 @@ const ContactUs = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-600 to-cyan-600">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center text-white"
-          >
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              Contact Us
-            </h1>
-            <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto">
-              Ready to transform your business? Let's discuss how we can help you achieve your goals.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <section
+      style={{ backgroundImage: `url(${background})` }}
+  className="py-20 bg-gradient-to-r from-gray-100 to-gray-200 relative overflow-hidden bg-cover bg-center"
+>
+  {/* Bubble Overlays */}
+  <div className="absolute inset-0 opacity-10">
+    <div className="absolute top-10 left-10 w-20 h-20 bg-blue-600 rounded-full"></div>
+    <div className="absolute top-20 right-20 w-16 h-16 bg-cyan-500 rounded-full"></div>
+    <div className="absolute bottom-10 left-1/4 w-12 h-12 bg-blue-400 rounded-full"></div>
+    <div className="absolute bottom-20 right-1/3 w-24 h-24 bg-gray-400 rounded-full"></div>
+  </div>
+
+  {/* Content */}
+  <div className="container mx-auto px-4 text-center relative z-10">
+    <h1 className="text-5xl md:text-6xl font-bold text-gray-800 mb-6">
+      Contact Us
+    </h1>
+
+    {/* Breadcrumb */}
+    <div className="flex justify-center items-center space-x-2 text-gray-600 mb-8">
+      <span className="hover:text-blue-600 cursor-pointer">Home</span>
+      <span>›</span>
+      <span className="text-gray-800">Contact Us</span>
+    </div>
+  </div>
+</section>
 
       {/* Contact Form & Info Section */}
       <section className="py-20">

@@ -4,6 +4,7 @@ import { useInView } from 'react-intersection-observer';
 import { ArrowRight, CheckCircle, Users, Award, Clock, Target } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import ThreeBackground from '../components/ThreeBackground';
+import background from '../assets/title_bg-2.jpg'
 
 const Home = () => {
   const [heroRef, heroInView] = useInView({ triggerOnce: true, threshold: 0.1 });
@@ -196,31 +197,45 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-blue-600">
-        <div className="container mx-auto px-4 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Ready to Transform Your Business?
-            </h2>
-            <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-              Let's discuss how our innovative solutions can help you achieve your business goals.
-            </p>
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Link
-                to="/contact"
-                className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold transition-colors duration-200 inline-flex items-center space-x-2"
-              >
-                <span>Contact Us Today</span>
-                <ArrowRight size={20} />
-              </Link>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
+      <section
+  style={{ backgroundImage: `url(${background})` }}
+  className="py-20 bg-cover bg-center bg-no-repeat relative"
+>
+  {/* Soft Gradient Overlay */}
+  <div className="absolute inset-0 bg-white bg-opacity-30 z-0"></div>
+
+  {/* Floating Circles */}
+  <div className="absolute top-10 left-10 w-32 h-32 bg-blue-100 rounded-full opacity-40 z-0"></div>
+  <div className="absolute bottom-20 left-1/2 w-24 h-24 bg-blue-100 rounded-full opacity-30 z-0"></div>
+  <div className="absolute top-1/3 right-10 w-20 h-20 bg-blue-200 rounded-full opacity-40 z-0"></div>
+
+  {/* Content */}
+  <div className="container mx-auto px-4 text-center relative z-10">
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+    >
+      <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+        Ready to Transform Your Business?
+      </h2>
+      <p className="text-xl text-gray-700 mb-8 max-w-2xl mx-auto">
+        Let's discuss how our innovative solutions can help you achieve your business goals.
+      </p>
+      <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+        <Link
+          to="/contact"
+          className="bg-blue-600 text-white hover:bg-blue-700 px-8 py-4 rounded-lg font-semibold transition duration-200 inline-flex items-center space-x-2"
+        >
+          <span>Contact Us Today</span>
+          <ArrowRight size={20} />
+        </Link>
+      </motion.div>
+    </motion.div>
+  </div>
+</section>
+
+
     </div>
   );
 };

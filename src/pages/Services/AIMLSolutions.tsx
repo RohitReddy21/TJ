@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Brain, TrendingUp, Target, Zap, CheckCircle, ArrowRight, Quote } from 'lucide-react';
 import { Link } from 'react-router-dom';
-
+import background from '../../assets/title_bg-2.jpg'
 const AIMLSolutions = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
@@ -74,7 +74,8 @@ const AIMLSolutions = () => {
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
             <section
-  className="py-20 bg-gradient-to-r from-gray-100 to-gray-200 relative overflow-hidden bg-[url('https://techjignyasa.com/wp-content/uploads/2019/09/title_bg-2.jpg')] bg-cover bg-center"
+            style={{ backgroundImage: `url(${background})` }}
+  className="py-20 bg-gradient-to-r from-gray-100 to-gray-200 relative overflow-hidden bg-cover bg-center"
 >
   {/* Bubble Overlays */}
   <div className="absolute inset-0 opacity-10">
