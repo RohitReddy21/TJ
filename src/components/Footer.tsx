@@ -1,7 +1,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Facebook, Linkedin, Twitter, Instagram, Phone, Mail, MapPin } from 'lucide-react';
+import {
+  Facebook,
+  Linkedin,
+  Twitter,
+  Instagram,
+  Phone,
+  Mail,
+  MapPin,
+  ChevronRight
+} from 'lucide-react';
 
 const Footer = () => {
   const socialLinks = [
@@ -13,18 +22,16 @@ const Footer = () => {
 
   const quickLinks = [
     { label: 'Home', path: '/' },
-    { label: 'Products', path: '/products' },
-    { label: 'Services', path: '/services' },
+    { label: 'Products', path: '/products/cognitive-rpa' },
+    { label: 'Services', path: '/services/ai-ml' },
     { label: 'Contact Us', path: '/contact' },
   ];
 
   const services = [
-    'Cognitive RPA',
-    'AI Solutions',
-    'Automation Tools',
-    'Consulting',
-    'Development',
-    'Support'
+    { path: '/products/cognitive-rpa', label: 'Cognitive RPA' },
+    { path: '/services/ai-ml', label: 'AI & ML Solutions' },
+    { path: '/services/resource-realignment', label: 'Resource Realignment' },
+    { path: '/services/Incisive-Analytics', label: 'Incisive Analytics' }
   ];
 
   return (
@@ -79,15 +86,19 @@ const Footer = () => {
             <h4 className="text-white font-semibold text-lg mb-6">Quick Links</h4>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
-                <li key={link.path}>
+                <motion.li
+                  key={link.path}
+                  whileHover={{ x: 5 }}
+                  className="transition-all"
+                >
                   <Link
                     to={link.path}
-                    className="text-gray-300 hover:text-white hover:text-blue-400 transition-colors duration-200 flex items-center space-x-2"
+                    className="text-gray-300 hover:text-blue-400 transition-colors duration-200 flex items-center space-x-2"
                   >
-                    {/* <span className="w-1 h-1 bg-blue-400 rounded-full"></span> */}
+                    <ChevronRight size={16} />
                     <span>{link.label}</span>
                   </Link>
-                </li>
+                </motion.li>
               ))}
             </ul>
           </motion.div>
@@ -101,15 +112,19 @@ const Footer = () => {
             <h4 className="text-white font-semibold text-lg mb-6">Our Services</h4>
             <ul className="space-y-3">
               {services.map((service) => (
-                <li key={service}>
+                <motion.li
+                  key={service.path}
+                  whileHover={{ x: 5 }}
+                  className="transition-all"
+                >
                   <Link
-                    to="/services"
-                    className="text-gray-300 hover:text-white hover:text-blue-400 transition-colors duration-200 flex items-center space-x-2"
+                    to={service.path}
+                    className="text-gray-300 hover:text-blue-400 transition-colors duration-200 flex items-center space-x-2"
                   >
-                    {/* <span className="w-1 h-1 bg-blue-400 rounded-full"></span> */}
-                    <span>{service}</span>
+                    <ChevronRight size={16} />
+                    <span>{service.label}</span>
                   </Link>
-                </li>
+                </motion.li>
               ))}
             </ul>
           </motion.div>
@@ -129,7 +144,6 @@ const Footer = () => {
                   <div className="text-gray-400 text-sm">24/7 Support Available</div>
                 </div>
               </div>
-              
               <div className="flex items-start space-x-3">
                 <Mail size={18} className="text-blue-400 mt-1 flex-shrink-0" />
                 <div>
@@ -137,7 +151,6 @@ const Footer = () => {
                   <div className="text-gray-400 text-sm">Send us your inquiries</div>
                 </div>
               </div>
-              
               <div className="flex items-start space-x-3">
                 <MapPin size={18} className="text-blue-400 mt-1 flex-shrink-0" />
                 <div>
