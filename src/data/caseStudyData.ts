@@ -55,9 +55,7 @@ export const services: CaseStudy[] = [
     tags: ["ai", "automation", "machine learning", "ml", "robotic process automation", "rpa"],
     image: case2,
     icon: caselogo2,
-    overview: "",
-    challenge: "",
-    results: "",
+    
   },
   {
     slug: "process-realignment",
