@@ -11,17 +11,19 @@ import AIMLSolutions from './pages/Services/AIMLSolutions';
 import ResourceRealignment from './pages/Services/ResourceRealignment';
 import IncisiveAnalytics from './pages/Services/IncisiveAnalytics';
 import CaseStudyDetail from './components/CaseStudyDetail';
+import ScrollToTop from './components/ScrollTop'
 
 function App() {
   return (
     <Router>
       <div className="min-h-screen bg-gray-50">
         <Header />
+        <ScrollToTop />
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
-            {/* <Route path="/products" element={<Products />} />
-            <Route path="/services" element={<Services />} /> */}
+            {/* <Route path="/products" element={<Products />} /> */}
+            <Route path="/services" element={<Services />} />
             <Route path="/contact" element={<ContactUs />} />
              <Route path="/products/cognitive-rpa" element={<CognitiveRPA />} />
              <Route path="/services/ai-ml" element={<AIMLSolutions />} />

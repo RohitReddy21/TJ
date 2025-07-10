@@ -31,7 +31,7 @@ const Header = () => {
       ],
     },
     {
-      path: '/services/ai-ml',
+      path: '/services',
       label: 'Services',
       hasDropdown: true,
       dropdownItems: [

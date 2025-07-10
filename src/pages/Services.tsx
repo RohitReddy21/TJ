@@ -1,229 +1,163 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { Lightbulb, Code, Headphones, Settings, Users, Rocket } from 'lucide-react';
+import React from "react";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import background from "../assets/title_bg-2.jpg";
+import AI from '../assets/Ai-ML.jpg';
+import Resource from '../assets/resource.jpg';
+import Analytics from '../assets/Analytics.jpg';
+import { AiOutlineArrowRight } from "react-icons/ai";
 
-const Services = () => {
-  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
+const services = [
+  {
+    title: "AI and ML Solutions",
+    slug: "ai-ml",
+    shortDescription:
+      "Accelerate transformation using pre-trained ML models across payments, procurement, and more.",
+    image: AI,
+  },
+  {
+    title: "Resource Realignment",
+    slug: "resource-realignment",
+    shortDescription:
+      "Optimize global operations with right-sized teams and high-efficiency offshore support.",
+    image: Resource,
+  },
+  {
+    title: "Incisive Analytics",
+    slug: "incisive-analytics",
+    shortDescription:
+      "Leverage cross-domain analytics for faster, smarter business decisions.",
+    image: Analytics,
+  },
+];
 
-  const services = [
-    {
-      icon: Lightbulb,
-      title: 'Consulting',
-      description: 'Strategic technology consulting to help you make informed decisions about your digital transformation journey.',
-      features: ['Digital strategy planning', 'Technology assessment', 'ROI analysis', 'Implementation roadmap'],
-      color: 'bg-blue-600'
+// Animation variants
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i = 1) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.2,
+      duration: 0.6,
+      ease: [0.42, 0, 0.58, 1], // cubic-bezier for easeOut
     },
-    {
-      icon: Code,
-      title: 'Development',
-      description: 'Custom software development services using cutting-edge technologies and best practices.',
-      features: ['Web applications', 'Mobile apps', 'API development', 'System integration'],
-      color: 'bg-cyan-600'
-    },
-    {
-      icon: Headphones,
-      title: 'Support',
-      description: '24/7 technical support and maintenance services to ensure your systems run smoothly.',
-      features: ['24/7 monitoring', 'Bug fixes', 'Performance optimization', 'Security updates'],
-      color: 'bg-indigo-600'
-    },
-    {
-      icon: Settings,
-      title: 'Implementation',
-      description: 'End-to-end implementation services to deploy and configure your technology solutions.',
-      features: ['System deployment', 'Configuration', 'Data migration', 'User training'],
-      color: 'bg-purple-600'
-    },
-    {
-      icon: Users,
-      title: 'Training',
-      description: 'Comprehensive training programs to help your team maximize the value of your technology investments.',
-      features: ['User training', 'Admin training', 'Best practices', 'Certification programs'],
-      color: 'bg-green-600'
-    },
-    {
-      icon: Rocket,
-      title: 'Optimization',
-      description: 'Continuous optimization services to improve performance and reduce costs.',
-      features: ['Performance tuning', 'Cost optimization', 'Process improvement', 'Automation'],
-      color: 'bg-orange-600'
-    }
-  ];
+  }),
+};
 
-  const process = [
-    {
-      step: '01',
-      title: 'Discovery',
-      description: 'We start by understanding your business needs, challenges, and goals.'
-    },
-    {
-      step: '02',
-      title: 'Planning',
-      description: 'We create a detailed plan and strategy tailored to your specific requirements.'
-    },
-    {
-      step: '03',
-      title: 'Implementation',
-      description: 'Our expert team implements the solution with minimal disruption to your operations.'
-    },
-    {
-      step: '04',
-      title: 'Support',
-      description: 'We provide ongoing support and optimization to ensure continued success.'
-    }
-  ];
-
+const ServicesPage = () => {
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-600 to-cyan-600">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center text-white"
-          >
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              Our Services
-            </h1>
-            <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto">
-              Comprehensive technology services to help your business thrive in the digital age.
-            </p>
-          </motion.div>
+    <div className="w-full bg-gray-50 min-h-screen">
+      {/* Sub-banner */}
+      <motion.section
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={fadeUp}
+        style={{ backgroundImage: `url(${background})` }}
+        className="py-20 bg-gradient-to-r from-gray-100 to-gray-200 relative overflow-hidden bg-cover bg-center"
+      >
+        {/* Bubble Overlays */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-10 left-10 w-20 h-20 bg-blue-600 rounded-full blur-md"></div>
+          <div className="absolute top-20 right-20 w-16 h-16 bg-cyan-500 rounded-full blur-sm"></div>
+          <div className="absolute bottom-10 left-1/4 w-12 h-12 bg-blue-400 rounded-full blur-sm"></div>
+          <div className="absolute bottom-20 right-1/3 w-24 h-24 bg-gray-400 rounded-full blur-md"></div>
         </div>
-      </section>
 
-      {/* Services Grid */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <motion.div
-            ref={ref}
-            initial={{ opacity: 0, y: 50 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-              What We Offer
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Our comprehensive suite of services covers every aspect of your technology needs.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 50 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                whileHover={{ y: -10, scale: 1.02 }}
-                className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                <motion.div
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  className={`w-16 h-16 ${service.color} rounded-lg flex items-center justify-center mb-6`}
-                >
-                  <service.icon size={32} className="text-white" />
-                </motion.div>
-                
-                <h3 className="text-2xl font-bold text-gray-800 mb-4">
-                  {service.title}
-                </h3>
-                
-                <p className="text-gray-600 mb-6">
-                  {service.description}
-                </p>
-                
-                <div className="space-y-2">
-                  {service.features.map((feature, featureIndex) => (
-                    <div key={featureIndex} className="flex items-center space-x-2">
-                      <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                      <span className="text-gray-600">{feature}</span>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
+        {/* Content */}
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <h1 className="text-5xl md:text-6xl font-bold text-gray-800 mb-6">
+            Services
+          </h1>
+          <div className="flex justify-center items-center space-x-2 text-gray-600 mb-8">
+            <span className="hover:text-blue-600 cursor-pointer">Home</span>
+            <span>›</span>
+            <span className="text-gray-800">Services</span>
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      {/* Process Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
+      {/* Services Section */}
+      <div className="max-w-6xl mx-auto px-4 py-16 grid gap-12 md:grid-cols-2 lg:grid-cols-3">
+        {services.map((service, index) => (
           <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            key={index}
+            custom={index}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
+            className="bg-white shadow-xl rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-[1.03]"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-              Our Process
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              A proven methodology that ensures successful project delivery and client satisfaction.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {process.map((step, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
-                className="text-center"
+            <div className="h-52 overflow-hidden">
+              <motion.img
+                src={service.image}
+                alt={service.title}
+                className="w-full h-full object-cover transform hover:scale-105 transition duration-500 ease-in-out"
+              />
+            </div>
+            <div className="px-6 py-6 text-center">
+              <h2 className="text-xl font-bold text-gray-800 mb-2">
+                {service.title}
+              </h2>
+              <div className="w-8 h-1 bg-blue-600 mx-auto mb-4 rounded-full"></div>
+              <p className="text-gray-600 text-sm mb-6">
+                {service.shortDescription}
+              </p>
+              <Link
+                to={`/services/${service.slug}`}
+                className="text-blue-600 font-semibold hover:underline inline-flex items-center gap-1"
               >
-                <motion.div
-                  whileHover={{ scale: 1.1 }}
-                  className="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6"
-                >
-                  <span className="text-2xl font-bold text-white">{step.step}</span>
-                </motion.div>
-                
-                <h3 className="text-xl font-bold text-gray-800 mb-4">
-                  {step.title}
-                </h3>
-                
-                <p className="text-gray-600">
-                  {step.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 bg-blue-600">
-        <div className="container mx-auto px-4 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Let's Work Together
-            </h2>
-            <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-              Ready to transform your business with our expert services? Get in touch with us today.
-            </p>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold transition-colors duration-200"
-            >
-              Start Your Project
-            </motion.button>
+                Read More <AiOutlineArrowRight className="text-sm mt-0.5" />
+              </Link>
+            </div>
           </motion.div>
-        </div>
-      </section>
+        ))}
+      </div>
+      {/* Call to Action Section */}
+<section
+  style={{ backgroundImage: `url(${background})` }}
+  className="relative bg-cover bg-center py-20 mt-12"
+>
+  <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+  <div className="relative z-10 max-w-4xl mx-auto text-center text-white px-6">
+    <motion.h2
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
+      viewport={{ once: true }}
+      className="text-3xl md:text-4xl font-bold mb-4"
+    >
+      Ready to Transform Your Business?
+    </motion.h2>
+    <motion.p
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.3, duration: 0.6 }}
+      viewport={{ once: true }}
+      className="text-lg mb-6"
+    >
+      Let’s collaborate and unlock your organization’s full potential with cutting-edge tech and smart strategies.
+    </motion.p>
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ delay: 0.5 }}
+      viewport={{ once: true }}
+    >
+      <Link
+        to="/contact"
+        className="inline-block px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-full transition"
+      >
+        Contact Us
+      </Link>
+    </motion.div>
+  </div>
+</section>
+
     </div>
   );
 };
 
-export default Services;
+export default ServicesPage;
