@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import background from "../assets/title_bg-2.jpg";
 import AI from '../assets/Ai-ML.jpg';
-import Resource from '../assets/resource.jpg';
+import Resource from '../assets/Resource.jpg';
 import Analytics from '../assets/Analytics.jpg';
 import { AiOutlineArrowRight } from "react-icons/ai";
 
