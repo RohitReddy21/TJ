@@ -9,6 +9,8 @@ import StatsSection from '../components/StatsSection';
 import ServicesSection from '../components/ServicesSection';
 import WorkflowSteps from '../components/WorkFlowSteps';
 import video from '../assets/Bg-video.mp4'
+import FreeConsultation from '../components/FreeConsulation';
+import IndustrySection from '../components/IndustrySection';
 const Home = () => {
   const [heroRef, heroInView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
@@ -106,6 +108,8 @@ const Home = () => {
       <StatsSection />
       <ServicesSection/>
       <WorkflowSteps/>
+      <FreeConsultation/>
+      <IndustrySection/>
       {/* CTA Section */}
       <section
   style={{ backgroundImage: `url(${background})` }}
