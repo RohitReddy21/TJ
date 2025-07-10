@@ -75,19 +75,24 @@ const Header = () => {
       </div>
 
       {/* Main Navigation */}
-      <motion.div
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.3 }}
-        className={`transition-all duration-300 ${
-          scrolled ? 'bg-white/95 backdrop-blur-sm shadow-lg' : 'bg-white'
-        }`}
-      >
-        <div className="container mx-auto px-4 py-2 md:px-10 flex items-center justify-between">
-          {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3">
-            <img src={logo} alt="Tech Jignyasa Logo" className="w-28 h-16 object-contain" />
-          </Link>
+<motion.div
+  initial={{ y: -100 }}
+  animate={{ y: 0 }}
+  transition={{ duration: 0.3 }}
+  className={`transition-all duration-300 ${
+    scrolled ? 'bg-white/95 backdrop-blur-sm shadow-lg' : 'bg-white'
+  }`}
+>
+  <div className="container mx-auto px-4 py-2 md:px-10 flex items-center justify-between">
+    {/* Logo */}
+    <Link to="/" className="flex items-center space-x-3">
+      <img
+        src={logo}
+        alt="Tech Jignyasa Logo"
+        className="w-20 h-12 sm:w-24 sm:h-14 md:w-28 md:h-16 object-contain"
+      />
+    </Link>
+
 
           {/* Nav Links */}
           <nav className="hidden lg:flex items-center space-x-8">
@@ -166,88 +171,116 @@ const Header = () => {
             </div>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="lg:hidden text-gray-700"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
+          {/* Mobile Menu Toggle Button */}
+{/* Mobile Menu Button */}
+<button
+  className="lg:hidden text-gray-700 focus:outline-none"
+  onClick={() => setIsMenuOpen(!isMenuOpen)}
+  aria-label="Toggle menu"
+>
+  {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+</button>
 
-        {/* Mobile Nav */}
-        <AnimatePresence>
-          {isMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              className="lg:hidden px-4 pb-4"
-            >
-              <nav className="flex flex-col space-y-4 pt-4 border-t border-gray-200">
-                {navItems.map((item) => {
-                  const isDropdownOpen =
-                    (item.label === 'Products' && productsOpen) ||
-                    (item.label === 'Services' && servicesOpen);
+{/* Mobile Navigation Drawer */}
+<AnimatePresence>
+  {isMenuOpen && (
+    <motion.div
+      key="mobile-nav"
+      initial={{ x: '100%' }}
+      animate={{ x: 0 }}
+      exit={{ x: '100%' }}
+      transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+      className="fixed inset-0 z-50 bg-white lg:hidden shadow-lg"
+    >
+      <div className="flex items-center justify-between p-4 border-b border-gray-200">
+         <Link to="/" className="flex items-center space-x-3">
+      <img
+        src={logo}
+        alt="Tech Jignyasa Logo"
+        className="w-20 h-12 sm:w-24 sm:h-14 md:w-28 md:h-16 object-contain"
+      />
+    </Link>
+        <button
+          onClick={() => setIsMenuOpen(false)}
+          className="text-gray-700 hover:text-red-500 transition"
+          aria-label="Close menu"
+        >
+          <X size={28} />
+        </button>
+      </div>
 
-                  const toggleDropdown = () => {
-                    if (item.label === 'Products') setProductsOpen(!productsOpen);
-                    if (item.label === 'Services') setServicesOpen(!servicesOpen);
-                  };
+      <div className="px-6 py-4 space-y-6">
+        {navItems.map((item) => {
+          const isDropdownOpen =
+            (item.label === 'Products' && productsOpen) ||
+            (item.label === 'Services' && servicesOpen);
 
-                  return (
-                    <div key={item.path} className="flex flex-col">
-                      {item.hasDropdown ? (
-                        <>
-                          <button
-                            onClick={toggleDropdown}
-                            className="flex items-center justify-between text-gray-700 hover:text-blue-600 font-medium py-2"
+          const toggleDropdown = () => {
+            if (item.label === 'Products') setProductsOpen(!productsOpen);
+            if (item.label === 'Services') setServicesOpen(!servicesOpen);
+          };
+
+          return (
+            <div key={item.path}>
+              {item.hasDropdown ? (
+                <>
+                  <button
+                    onClick={toggleDropdown}
+                    className="w-full flex items-center justify-between text-gray-800 font-medium text-base"
+                  >
+                    <span>{item.label}</span>
+                    <motion.span animate={{ rotate: isDropdownOpen ? 180 : 0 }} transition={{ duration: 0.2 }}>
+                      <ChevronDown size={20} />
+                    </motion.span>
+                  </button>
+                  <AnimatePresence>
+                    {isDropdownOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        exit={{ opacity: 0, height: 0 }}
+                        className="mt-2 pl-4 space-y-2"
+                      >
+                        {item.dropdownItems.map((sub) => (
+                          <Link
+                            key={sub.path}
+                            to={sub.path}
+                            onClick={() => setIsMenuOpen(false)}
+                            className="block text-gray-600 hover:text-blue-600 text-sm"
                           >
-                            <span>{item.label}</span>
-                            <motion.span
-                              animate={{ rotate: isDropdownOpen ? 180 : 0 }}
-                              transition={{ duration: 0.2 }}
-                            >
-                              <ChevronDown size={16} />
-                            </motion.span>
-                          </button>
-                          {isDropdownOpen && (
-                            <motion.div
-                              initial={{ opacity: 0, height: 0 }}
-                              animate={{ opacity: 1, height: 'auto' }}
-                              exit={{ opacity: 0, height: 0 }}
-                              className="pl-4 space-y-2"
-                            >
-                              {item.dropdownItems.map((sub) => (
-                                <Link
-                                  key={sub.path}
-                                  to={sub.path}
-                                  onClick={() => setIsMenuOpen(false)}
-                                  className="text-gray-600 text-sm hover:text-blue-600 block"
-                                >
-                                  {sub.label}
-                                </Link>
-                              ))}
-                            </motion.div>
-                          )}
-                        </>
-                      ) : (
-                        <Link
-                          to={item.path}
-                          onClick={() => setIsMenuOpen(false)}
-                          className="text-gray-700 hover:text-blue-600 font-medium py-2"
-                        >
-                          {item.label}
-                        </Link>
-                      )}
-                    </div>
-                  );
-                })}
-              </nav>
-            </motion.div>
-          )}
-        </AnimatePresence>
+                            {sub.label}
+                          </Link>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </>
+              ) : (
+                <Link
+                  to={item.path}
+                  onClick={() => setIsMenuOpen(false)}
+                  className="block text-gray-800 hover:text-blue-600 font-medium text-base"
+                >
+                  {item.label}
+                </Link>
+              )}
+            </div>
+            
+          );
+        })}
+        
+      </div>
+      
+    </motion.div>
+    
+  )}
+  
+</AnimatePresence>
+
+        </div>
+        
       </motion.div>
+      
     </header>
   );
 };

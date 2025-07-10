@@ -46,13 +46,14 @@ const Footer = () => {
             transition={{ duration: 0.6 }}
             className="lg:col-span-1"
           >
-            <Link to="/" className="flex items-center space-x-2 sm:space-x-3">
+            <Link to="/" className="flex items-center space-x-3 mb-3">
   <img
     src={logo}
     alt="Tech Jignyasa Logo"
-    className="w-10 h-10 sm:w-[100px] sm:h-[80px] object-contain rounded-lg mb-3"
+    className="w-20 h-12 sm:w-24 sm:h-14 md:w-28 md:h-16 object-contain"
   />
 </Link>
+
   
              
             <p className="text-gray-300 mb-6 leading-relaxed">

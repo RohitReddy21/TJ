@@ -10,6 +10,8 @@ import CognitiveRPA from './pages/Products/CognitiveRPA';
 import AIMLSolutions from './pages/Services/AIMLSolutions';
 import ResourceRealignment from './pages/Services/ResourceRealignment';
 import IncisiveAnalytics from './pages/Services/IncisiveAnalytics';
+import CaseStudyDetail from './components/CaseStudyDetail';
+
 function App() {
   return (
     <Router>
@@ -25,6 +27,8 @@ function App() {
              <Route path="/services/ai-ml" element={<AIMLSolutions />} />
              <Route path="/services/resource-realignment" element={<ResourceRealignment />} />
              <Route path="/services/incisive-analytics" element={<IncisiveAnalytics />} />
+             <Route path="/case-studies/:slug" element={<CaseStudyDetail />} />
+
           </Routes>
         </main>
         <Footer />
