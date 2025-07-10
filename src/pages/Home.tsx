@@ -8,7 +8,7 @@ import background from '../assets/title_bg-2.jpg'
 import StatsSection from '../components/StatsSection';
 import ServicesSection from '../components/ServicesSection';
 import WorkflowSteps from '../components/WorkFlowSteps';
-import video from '../assets/Bg-video.mp4'
+import video from '../assets/228908_medium.mp4'
 import FreeConsultation from '../components/FreeConsulation';
 import IndustrySection from '../components/IndustrySection';
 const Home = () => {
@@ -30,7 +30,7 @@ const Home = () => {
   </video>
 
   {/* Optional Overlay */}
-  <div className="absolute inset-0 bg-black/30 z-0" />
+  <div className="absolute inset-0 bg-black/70 z-0" />
 
   {/* Background graphics (if any like ThreeBackground) */}
   <div className="absolute inset-0 z-0">
