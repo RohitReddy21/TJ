@@ -82,37 +82,38 @@ const ServicesPage = () => {
       <div className="max-w-6xl mx-auto px-4 py-16 grid gap-12 md:grid-cols-2 lg:grid-cols-3">
         {services.map((service, index) => (
           <motion.div
-            key={index}
-            custom={index}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeUp}
-            className="bg-white shadow-xl rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-[1.03]"
-          >
-            <div className="h-52 overflow-hidden">
-              <motion.img
-                src={service.image}
-                alt={service.title}
-                className="w-full h-full object-cover transform hover:scale-105 transition duration-500 ease-in-out"
-              />
-            </div>
-            <div className="px-6 py-6 text-center">
-              <h2 className="text-xl font-bold text-gray-800 mb-2">
-                {service.title}
-              </h2>
-              <div className="w-8 h-1 bg-blue-600 mx-auto mb-4 rounded-full"></div>
-              <p className="text-gray-600 text-sm mb-6">
-                {service.shortDescription}
-              </p>
-              <Link
-                to={`/services/${service.slug}`}
-                className="text-blue-600 font-semibold hover:underline inline-flex items-center gap-1"
-              >
-                Read More <AiOutlineArrowRight className="text-sm mt-0.5" />
-              </Link>
-            </div>
-          </motion.div>
+  key={index}
+  custom={index}
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true }}
+  variants={fadeUp}
+  className="bg-white shadow-xl rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-[1.03]"
+>
+  <div className="h-64 overflow-hidden">
+    <motion.img
+      src={service.image}
+      alt={service.title}
+      className="w-full h-full object-cover transform hover:scale-105 transition duration-500 ease-in-out"
+    />
+  </div>
+  <div className="px-8 py-8 text-center">
+    <h2 className="text-2xl font-bold text-gray-800 mb-3">
+      {service.title}
+    </h2>
+    <div className="w-10 h-1 bg-blue-600 mx-auto mb-5 rounded-full"></div>
+    <p className="text-gray-600 text-base mb-6">
+      {service.shortDescription}
+    </p>
+    <Link
+      to={`/services/${service.slug}`}
+      className="text-blue-600 font-semibold hover:underline inline-flex items-center gap-1"
+    >
+      Read More <AiOutlineArrowRight className="text-sm mt-0.5" />
+    </Link>
+  </div>
+</motion.div>
+
         ))}
       </div>
       {/* Call to Action Section */}
