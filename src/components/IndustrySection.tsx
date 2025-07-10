@@ -1,7 +1,7 @@
 import React from "react";
 import { ArrowRight, Award, PiggyBank } from "lucide-react";
 import leftImage from "../assets/img_02_c.jpg";      // Replace with actual image path
-import centerImage from "../assets/img_01_c.jpg ";  // Replace with actual image path
+import centerImage from "../assets/img_01_c.jpg";  // Replace with actual image path
 
 const IndustrySection = () => {
   return (
