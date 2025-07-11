@@ -20,7 +20,7 @@ export default function CaseStudiesSection() {
       style={{ backgroundImage: `url(${bg})` }}
     >
       {/* Overlay */}
-      <div className="absolute inset-0 bg-gray-800/70 backdrop-blur-sm"></div>
+      <div className="absolute inset-0 bg-gray-800/70 backdrop"></div>
 
       {/* Content */}
       <div className="relative z-10">

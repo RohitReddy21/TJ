@@ -1,95 +1,62 @@
+import React from 'react';
 import { motion } from 'framer-motion';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-export default function Pagination({ 
-  currentPage, 
-  totalPages, 
-  onPageChange 
-}) {
-  const getPageNumbers = () => {
-    const pages = [];
-    const maxVisible = 5;
-    
-    if (totalPages <= maxVisible) {
-      for (let i = 1; i <= totalPages; i++) {
-        pages.push(i);
-      }
-    } else {
-      if (currentPage <= 3) {
-        for (let i = 1; i <= 4; i++) {
-          pages.push(i);
-        }
-        pages.push('...');
-        pages.push(totalPages);
-      } else if (currentPage >= totalPages - 2) {
-        pages.push(1);
-        pages.push('...');
-        for (let i = totalPages - 3; i <= totalPages; i++) {
-          pages.push(i);
-        }
-      } else {
-        pages.push(1);
-        pages.push('...');
-        for (let i = currentPage - 1; i <= currentPage + 1; i++) {
-          pages.push(i);
-        }
-        pages.push('...');
-        pages.push(totalPages);
-      }
-    }
-    
-    return pages;
-  };
+const cards = [
+  { title: "AI + ML", description: "Accelerate transformation using ML models." },
+  { title: "Analytics", description: "Smarter, faster decisions with analytics." },
+  { title: "Automation", description: "Automate processes end-to-end." },
+];
 
+const container = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.3,
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, scale: 0.8, y: 50 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: [0.42, 0, 0.58, 1], // easeOut
+    },
+  },
+};
+
+const AnimatedCards = () => {
   return (
-    <motion.div 
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      className="flex justify-center items-center gap-2 mt-12"
-    >
-      <motion.button
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        onClick={() => onPageChange(currentPage - 1)}
-        disabled={currentPage === 1}
-        className="flex items-center gap-2 px-4 py-2 bg-slate-700/50 border border-slate-600/50 rounded-xl text-white disabled:opacity-50 disabled:cursor-not-allowed hover:bg-slate-600/50 transition-all duration-200"
+    <section className="min-h-screen bg-gray-900 py-20 px-6">
+      <motion.div
+        className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto"
+        variants={container}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
       >
-        <ChevronLeft size={16} />
-        Previous
-      </motion.button>
-
-      <div className="flex gap-1">
-        {getPageNumbers().map((page, index) => (
-          <motion.button
+        {cards.map((card, index) => (
+          <motion.div
             key={index}
-            whileHover={{ scale: page !== '...' ? 1.1 : 1 }}
-            whileTap={{ scale: page !== '...' ? 0.9 : 1 }}
-            onClick={() => page !== '...' && onPageChange(page)}
-            disabled={page === '...'}
-            className={`w-10 h-10 rounded-xl font-medium transition-all duration-200 ${
-              page === currentPage
-                ? 'bg-gradient-to-r from-indigo-500 to-purple-600 text-white shadow-lg'
-                : page === '...'
-                ? 'text-slate-400 cursor-default'
-                : 'bg-slate-700/50 text-white hover:bg-slate-600/50'
-            }`}
+            variants={cardVariants}
+            whileHover={{
+              scale: 1.05,
+              boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.2)",
+            }}
+            className="bg-white rounded-2xl p-8 shadow-md transition-all"
           >
-            {page}
-          </motion.button>
+            <h3 className="text-xl font-bold mb-2 text-gray-800">{card.title}</h3>
+            <p className="text-gray-600 text-sm">{card.description}</p>
+          </motion.div>
         ))}
-      </div>
-
-      <motion.button
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        onClick={() => onPageChange(currentPage + 1)}
-        disabled={currentPage === totalPages}
-        className="flex items-center gap-2 px-4 py-2 bg-slate-700/50 border border-slate-600/50 rounded-xl text-white disabled:opacity-50 disabled:cursor-not-allowed hover:bg-slate-600/50 transition-all duration-200"
-      >
-        Next
-        <ChevronRight size={16} />
-      </motion.button>
-    </motion.div>
+      </motion.div>
+    </section>
   );
-}
+};
+
+export default AnimatedCards;
